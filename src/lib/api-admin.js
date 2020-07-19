@@ -1,6 +1,11 @@
 const Router = require('koa-router')
 const formidable = require('formidable');
 
+const setResponse = require("./api-admin/common").setResponse;
+const Project = require( "./api-admin/project")
+
+const project = new Project()
+
 const router = new Router({
     prefix: '/admin'
 })
@@ -14,6 +19,14 @@ router.get('/apis', (ctx, next)=>{
         response: "test response",
         description: "interface description"
     }]))
+})
+.get('/project/list', async( ctx, next)=>{
+    ctx.res.statusCode = 200;
+    ctx.res.end( project.list() )
+})
+.post('/project/add', async (ctx, next)=>{
+  ctx.status = 200;
+  ctx.body = project.add()
 })
 .post('/add_api', (ctx, next)=>{
     ctx.res.statusCode = 200;
@@ -45,11 +58,3 @@ router.get('/apis', (ctx, next)=>{
 })
 
 module.exports=router;
-
-function setResponse(data = {}, code = 0,  msg = "OK"){
-    return JSON.stringify({
-        code,
-        data,
-        msg
-    })
-}

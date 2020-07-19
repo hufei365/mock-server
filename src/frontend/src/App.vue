@@ -1,11 +1,12 @@
 <template>
     <div class="main">
-        <section class="header">
-            <img src="./assets/logo.png" alt="" srcset="">
+        <section class="mheader">
+            <img src="./assets/logo.png" alt="" srcset="" />
         </section>
         <nav>
             <router-link class="nav-item center" to="/">Home</router-link>
-            <router-link class="nav-item center" to="/list">List</router-link>
+            <router-link class="nav-item center" to="/project">Project</router-link>
+            <router-link class="nav-item center" to="/module">Module</router-link>
         </nav>
         <router-view class="right-content"></router-view>
     </div>
@@ -23,14 +24,14 @@ export default {
     display: flex;
     flex-wrap:wrap;
 }
-.header{
+.mheader{
     height: 49px;
     border-bottom: 1px solid;
     vertical-align: middle;
     border-color: var(--orange-peel);
     flex: 0 0 100%;
 }
-.header img{
+.mheader img{
     margin-left: 75px;
 }
 
