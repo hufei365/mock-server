@@ -1,8 +1,8 @@
 <template>
     <div class="main">
         <section class="mheader">
-            <img src="./assets/logo.png" alt="" srcset="" />
-        </section>
+            <img src="./assets/logo.png" alt="mockjs logo" />
+       </section>
         <nav>
             <router-link class="nav-item center" to="/">Home</router-link>
             <router-link class="nav-item center" to="/project">Project</router-link>

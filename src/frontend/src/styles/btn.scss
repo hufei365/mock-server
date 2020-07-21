@@ -1,0 +1,35 @@
+@mixin  Btn {
+  cursor: pointer;
+}
+@mixin colorBtn($color) {
+  @include Btn();
+  background: $color;
+
+  &:hover {
+    color: $color;
+    background: transparent;
+
+    &:before,
+    &:after {
+      background: $color;
+    }
+  }
+}
+
+.blue-btn {
+  @include colorBtn(var(--primary))
+}
+
+.red-btn {
+  @include colorBtn(var(--red))
+}
+
+.green-btn {
+  @include colorBtn(var(--green))
+}
+
+
+
+.yellow-btn {
+  @include colorBtn(var(--yellow))
+}

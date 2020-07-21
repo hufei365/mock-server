@@ -1,7 +1,7 @@
 <template>
     <div>
         <h3>Project List page</h3>
-        <MButton @click="addProject">Add</MButton>
+        <button class="blue-btn" @click="addProject">Add</button>
         <MTable >
              <template v-slot:thead>
             <thead>
@@ -20,13 +20,12 @@
     </div>
 </template>
 <script>
+import  "../../../styles/btn.scss"
 import { Get , Post } from "../../../fetch"
 import MTable from "../../../components/ui/table.vue"
-import MButton from "../../../components/ui/button.vue"
 export default {
     components: {
-        MTable,
-        MButton
+        MTable
     },
     data(){
         return {
