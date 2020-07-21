@@ -1,19 +1,39 @@
 {
-  "name": "mock-server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "formidable": "^1.2.2",
-    "koa": "^2.13.0",
-    "koa-bodyparser": "^4.3.0",
-    "koa-router": "^9.1.0",
-    "mockjs": "^1.1.0"
-  }
+	"name": "mock-server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"precommit": "eslint --config .eslintrc.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged",
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+		}
+	},
+	"lint-staged": {
+		"*.{js,ts,vue,scss,css}": [
+			"npm run precommit",
+			"prettier --write",
+			"git add"
+		]
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"formidable": "^1.2.2",
+		"koa": "^2.13.0",
+		"koa-bodyparser": "^4.3.0",
+		"koa-router": "^9.1.0",
+		"mockjs": "^1.1.0"
+	},
+	"devDependencies": {
+		"commitlint": "^9.1.0",
+		"eslint": "^7.5.0",
+		"husky": "^4.2.5",
+		"prettier": "^2.0.5"
+	}
 }
